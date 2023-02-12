@@ -2,7 +2,6 @@
 
 Analyse von Geschwindigkeitsdaten auf drei von Zürichs umstrittensten Verkehrsachsen aus dem Januar 2021.  
 
-!Graph_all.jpg
 Screenshot aus Notebook
 
 
@@ -47,6 +46,8 @@ So zeigen die ersten analysierten Daten für die untersuchten Strassen, dass auf
 
 Die ursprünglichen Json-Fils wurden mit selbst programmierten Funktionen via Pandas und Geopandas zu neuen Files umgearbeitet, um sie auf eine interaktive Karte einzeichnen zu können. Für die 4 Time-Sets (siehe oben) und 2 Routen (Hin- und Rückweg) werden pro Verkehrsachse so insgesamt 8 Files generiert (insg. 24). Die verwendeten Libraries: *Pandas, Geopandas, shapely und fnmatch.*
 
+**Die genauen Angaben und statistischen Annahmen können dem Notebook [2 Daten reinigen und analysieren](https://github.com/Aebermal/speed-kt-zh/blob/main/2%20Daten%20reinigen%20und%20analysieren.ipynb) entnommen werden**
+
 #### Einschränkung
 
 Schön wäre gewesen, die Daten-Segmentierung und Färbung direkt im File einzuzeichnen, um etwa mit einem externen Tool wie Data-Wrapper einzeichnen zu können. In der aktuellen Fassung der Daten wird das File als eine Linie eingezeichnet - ein kleiner Schönheitsfehler, den es im Weiteren zu beheben gilt. 
@@ -56,6 +57,8 @@ Eine bessere, genauere Granularität der Daten wäre erreicht worden, wenn die s
 ### 2.1 Automatisierung
 
 Die Ergebnisse aus den 8 Rosengarten-Files waren aussagekräftig und deshalb wurde der Code in ein Automatisierungsfile übertragen (unkommentiert). Dadurch dieses Notebook lassen sich die ursprünglichen *Json-Files* automatisiert in *Geojson-Files* konvertieren und ablegen. 
+
+Die vollständige Automatisierung ist [hier](https://github.com/Aebermal/speed-kt-zh/blob/main/2.1_Automatisierung.ipynb) zu finden.
 
 
 ## 3 Erstellung interaktive Grafiken
@@ -68,10 +71,12 @@ Weil die einzelnen Segmente nicht auf die schnelle eingefärbt werden konnten, w
 
 Damit der User alle Strassensegmente anschauen kann, wurden alle Strassensegmente der drei Verkehrsachsen in einer Karte via *GeoPandas.explore()* eingefügt. So lassen sich die drei Strassenabschnitte interaktiv erkunden. 
 
+Die ganze Visualisierung und die einzelnen Routen lassen sich[hier](https://github.com/Aebermal/speed-kt-zh/blob/main/3%20Daten%20visualisieren.ipynb) erkunden.
+
 
 ## 4 Story-Line und weiteres Vorgehen
 
-
+Hier folgt ein Link zum PDF mit Titel, Lead, drei Grafiken, Storyline und weiterem Vorgehen
 
 ## 5 Aufwandslogbuch 
 
