@@ -2,7 +2,8 @@
 
 Analyse von Geschwindigkeitsdaten auf drei von Zürichs umstrittensten Verkehrsachsen aus dem Januar 2021.  
 
-**Hier kommt der Plot von einer der Karten hin mit ! aus dem Ordner aufrufen einfügen und erledigen** 
+!Graph_all.jpg
+Screenshot aus Notebook
 
 
 ## 0 Recherche-These
@@ -14,7 +15,6 @@ Analyse von Geschwindigkeitsdaten auf drei von Zürichs umstrittensten Verkehrsa
 - **Briefing-Person konsultieren**: Eine Vorbesprechung fand im Januar statt. Justierung des Recherche-Fokus und Dimension innerhalb des Teams. 
 
 ## 1 Daten-Quelle
-------------------------------------------------------------------------------------------------------------------------
 
 Die niederländische Firma Tomtom ist eines der weitverbreitetsten Navigationssysteme weltweit: Tomtom schätzt, dass ihre Systemerund 20 Prozent des gesamten Autoverkehrs erfassen. Die Firma sammelt GPS-Daten und stellt sie in *aggregierter* Form für jeden Strassenabschnitt zur Verfügung. Ursprünglich stammen die Daten sowohl von portablen als auch von fest eingebauten Navigationsgeräten sowie Smartphones. **[Traffic-Stats-API](https://developer.tomtom.com/traffic-stats/documentation/api/introduction)**
 
@@ -33,27 +33,47 @@ Das machte eine redimensionierung des Projektes notwendig. Analysiert werden des
 - Die Albisriedenstrasse, [wo kürzlich innert kurzer Zeit 350 Autos geblitzt wurden](https://www.tagesanzeiger.ch/radar-blitzte-350-mal-an-einem-tag-949756423047).
 
 
-## 2 Daten-Reinigung, Segmentierung Strassenabschnitte und Berechnung Abweichung
+## 2 Daten reinigen und analysieren
+
+Für alle drei Strassen wurde der Zeitraum vom 1. Januar bis zum 31. Januar 2021 untersucht. Ausgewertet wurden nur Beobachtungen von Montag bis Freitag in den drei Zeitfenstern 0-6 Uhr, 6-12 Uhr, 12-18 Uhr sowie 18-24 Uhr (jeweils sechs Stunden). Nachts fahren deutlich weniger Autos als tagsüber, die Geschwindigkeiten sind dann meist auch höher. Gezeigt werden in der Regel nur die Zeitfenster 0-6 Uhr und 6-12 Uhr. Die Daten der  unterscheiden sich nur geringfügig von den Daten von 7-12 Uhr.
+
+Pro Straßensegment lagen nicht die vollständigen Einzeldaten aller dort im Beobachtungszeitraum erfassten Autos vor, sondern nur **aggregierte Werte**, etwa die Anzahl der Hits pro Abschnitt und die dort gefahrene Durchschnittsgeschwindigkeit. Zusätzlich sind die erfassten Autos nach ihrer gefahrenen Geschwindigkeit in 20 Perzentile aufgeteilt.  
+
+Es gibt eine Angabe zur Durchschnittsgeschwindigkeit der langsamsten 5 Prozent der Autos, zur Durchschnittsgeschwindigkeit der nächst schnelleren 5 Prozent der Autos und so weiter bis zur Durchschnittsgeschwindigkeit der schnellsten 5 Prozent der Autos. Aus diesen Angaben und dem verifizierten Speedlimit (Kameras in den Autos zeichnen pro Strassenabschnitt die angezeigte Geschwindigkeit auf) lässt sich leicht ableiten, wie hoch der Anteil der Autos in der Straße war, die beispielsweise mindestens 10 km/h schneller gefahren sind als erlaubt. Diese wurden zur Berechnung des **Anteil der Autos, die zu schnell fahren** genutzt und direkt ins Original-File geschrieben.
+
+#### Erste Ergebnisse
+
+So zeigen die ersten analysierten Daten für die untersuchten Strassen, dass auf der Hardbrücke in der Nacht jedes zweite Auto zu schnell unterwegs ist. Auch im Bereich der Wasserwerkstrasse sind sehr viele Autos in der 30er-Zone deutlich zu schnell unterwegs.
+
+Die ursprünglichen Json-Fils wurden mit selbst programmierten Funktionen via Pandas und Geopandas zu neuen Files umgearbeitet, um sie auf eine interaktive Karte einzeichnen zu können. Für die 4 Time-Sets (siehe oben) und 2 Routen (Hin- und Rückweg) werden pro Verkehrsachse so insgesamt 8 Files generiert (insg. 24). Die verwendeten Libraries: *Pandas, Geopandas, shapely und fnmatch.*
+
+#### Einschränkung
+
+Schön wäre gewesen, die Daten-Segmentierung und Färbung direkt im File einzuzeichnen, um etwa mit einem externen Tool wie Data-Wrapper einzeichnen zu können. In der aktuellen Fassung der Daten wird das File als eine Linie eingezeichnet - ein kleiner Schönheitsfehler, den es im Weiteren zu beheben gilt. 
+
+Eine bessere, genauere Granularität der Daten wäre erreicht worden, wenn die segmente einzeln für jeden Tag abgefragt worden wären. Das wäre aber erst mit dem Zugriff auf die API möglich bzw. war mit der Beschränkung der 20 Reports nicht umsetzbar für die drei Verkehrsachsen.
+
+### 2.1 Automatisierung
+
+Die Ergebnisse aus den 8 Rosengarten-Files waren aussagekräftig und deshalb wurde der Code in ein Automatisierungsfile übertragen (unkommentiert). Dadurch dieses Notebook lassen sich die ursprünglichen *Json-Files* automatisiert in *Geojson-Files* konvertieren und ablegen. 
+
+
+## 3 Erstellung interaktive Grafiken
+
+Die ersten Ergebnisse der jeweiligen *Routen und Timesets* (insg. 24) wurden in einem ersten Schritt mit den Libraries *GeoPandas*, shapely, fnmatch, os, osmnx und matplotlib* 
+
+Die ersten Grafiken wurden auf das Strassennetz von Zürich gezeichnet, das via OpenStreetmap-API angezapft wurde (osmnx), die Daten aus dem Ursprungsfile wurden via crs angepasst und später in der Automatisierung ergänzt. 
+
+Weil die einzelnen Segmente nicht auf die schnelle eingefärbt werden konnten, wurden für die Geschwindigkeits-Segmente mit *mcolors aus matplotlib* ein eigenes Farbschema programmiert. 
+
+Damit der User alle Strassensegmente anschauen kann, wurden alle Strassensegmente der drei Verkehrsachsen in einer Karte via *GeoPandas.explore()* eingefügt. So lassen sich die drei Strassenabschnitte interaktiv erkunden. 
+
+
+## 4 Story-Line und weiteres Vorgehen
 
 
 
-
-
-## 3 Neustrukturierung der Files und Analye
-
-
-
-
-## 4 Erstellung interaktive Grafiken
-
-
-
-
-## 5 Story-Line und weiteres Vorgehen
-
-
-
-## Aufwandslogbuch 
+## 5 Aufwandslogbuch 
 
 - Einlesen in API-Dokumentation und Datenstruktur: 1 Std. 
 - Datenbeschaffung via Move-Portal: 2 Std. 
