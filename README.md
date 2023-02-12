@@ -71,7 +71,7 @@ Weil die einzelnen Segmente nicht auf die schnelle eingefärbt werden konnten, w
 
 Damit der User alle Strassensegmente anschauen kann, wurden alle Strassensegmente der drei Verkehrsachsen in einer Karte via *GeoPandas.explore()* eingefügt. So lassen sich die drei Strassenabschnitte interaktiv erkunden. 
 
-Die ganze Visualisierung und die einzelnen Routen lassen sich[hier](https://github.com/Aebermal/speed-kt-zh/blob/main/3%20Daten%20visualisieren.ipynb) erkunden.
+Die ganze Visualisierung und die einzelnen Routen lassen sich [hier](https://github.com/Aebermal/speed-kt-zh/blob/main/3%20Daten%20visualisieren.ipynb) erkunden.
 
 
 ## 4 Story-Line und weiteres Vorgehen
