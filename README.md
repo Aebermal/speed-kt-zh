@@ -76,7 +76,7 @@ Die ganze Visualisierung und die einzelnen Routen lassen sich [hier](https://git
 
 ## 4 Story-Line und weiteres Vorgehen
 
-[PDF zur Storyline und dem weiteren Vorgehen bis zur Publikation.](https://github.com/Aebermal/speed-kt-zh/blob/main/4 Nächtliche Tempo-Exzesse auf der Hardbrücke.pdf)
+[PDF zur Storyline und dem weiteren Vorgehen bis zur Publikation.](4 Nächtliche Tempo-Exzesse auf der Hardbrücke.pdf)
 
 ## 5 Aufwandslogbuch 
 
