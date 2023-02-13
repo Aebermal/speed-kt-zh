@@ -2,7 +2,7 @@
 
 Analyse von Geschwindigkeitsdaten auf drei von Zürichs umstrittensten Verkehrsachsen aus dem Januar 2021.  
 
-Screenshot aus Notebook
+![So viele Autos fahren zu schnell](graph_all.jpg)
 
 
 ## 0 Recherche-These
@@ -85,7 +85,7 @@ Hier folgt ein Link zum PDF mit Titel, Lead, drei Grafiken, Storyline und weiter
 - Datenreinigung, Segmentierung und Berechnungen: 24 Std. (inkl. Recherchen, Nachschlagen, ausbessern des Codes mit Funktionen)
 - Visualisierung: 16 Std. (inkl. Recherche für interaktive Karte) 
 - Texten der Story-Line: 1 Std. (nach Entscheid für Variante 2)
-- **Total: 28 Stunden**
+- **Total: 43 Stunden**
 
 
 
