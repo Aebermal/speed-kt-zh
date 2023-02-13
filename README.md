@@ -9,13 +9,13 @@ Analyse von Geschwindigkeitsdaten auf drei von Zürichs umstrittensten Verkehrsa
 ------------------------------------------------------------------------------------------------------------------------
 
 - **These**: Tempo 30 und die damit verbundenen Bussen zeigen Wirkung.
-- **Thesen-Check**: Die Tempo-30-Diskussion wird in Zürich sehr dogmatisch geführt. Es gibt zwar Studien, die basieren allerdings häufig auf theoretischen Rechenmodellen. Zudem hat das Thema Schnellfahrer im Zusammenhang mit dem Unfall am Escher-Wyss-Platz zusätzliche Relevanz erhalten. Initialaufwand relativ gross, allerdings kann der Code später für API-Abfrage und weitere Geschichten im Zusammenhang mit Tomtom-Daten wiederverwendet werden: Aufwandsschätzung 6 Tage. 
+- **Thesen-Check**: Die Tempo-30-Diskussion wird in Zürich sehr dogmatisch geführt. Es gibt zwar Studien, die basieren allerdings häufig auf theoretischen Rechenmodellen. Zudem hat das Thema Schnellfahrer im Zusammenhang mit dem Unfall am Escher-Wyss-Platz zusätzliche Relevanz erhalten. Der Initialaufwand ist relativ gross, allerdings kann der Code später für API-Abfragen und weitere Geschichten im Zusammenhang mit Tomtom-Daten wiederverwendet werden: Aufwandsschätzung 6 Tage. 
 - **Knackpunkt**: Die Datenlage ist zu knapp, um wirklich valide Aussagen treffen zu können. 
 - **Briefing-Person konsultieren**: Eine Vorbesprechung fand im Januar statt. Justierung des Recherche-Fokus und Dimension innerhalb des Teams. 
 
 ## 1 Daten-Quelle
 
-Die niederländische Firma Tomtom ist eines der weitverbreitetsten Navigationssysteme weltweit: Tomtom schätzt, dass ihre Systemerund 20 Prozent des gesamten Autoverkehrs erfassen. Die Firma sammelt GPS-Daten und stellt sie in *aggregierter* Form für jeden Strassenabschnitt zur Verfügung. Ursprünglich stammen die Daten sowohl von portablen als auch von fest eingebauten Navigationsgeräten sowie Smartphones. **[Traffic-Stats-API](https://developer.tomtom.com/traffic-stats/documentation/api/introduction)**
+Die niederländische Firma Tomtom ist eines der weitverbreitetsten Navigationssysteme weltweit: Tomtom schätzt, dass ihre Systeme rund 20 Prozent des gesamten Autoverkehrs erfassen. Die Firma sammelt GPS-Daten und stellt sie in *aggregierter* Form für jeden Strassenabschnitt zur Verfügung. Ursprünglich stammen die Daten sowohl von portablen als auch von fest eingebauten Navigationsgeräten sowie Smartphones. **[Traffic-Stats-API](https://developer.tomtom.com/traffic-stats/documentation/api/introduction)**
 
 ### Probleme bei der Datenbeschaffung
 
@@ -25,18 +25,18 @@ Um trotzdem Daten zu Zürichs Strassen analysieren zu können, wurden die Daten 
 
 ### Redimensionierung Recherche
 
-Das machte eine redimensionierung des Projektes notwendig. Analysiert werden deshalb drei umstrittene Verkehrsachsen, die zuletzt politisch Anlass zu Diskussionen gaben: 
+Analysiert werden deshalb drei umstrittene Verkehrsachsen, die zuletzt politisch Anlass zu Diskussionen gaben: 
 
-- Bucheggplatz via Rosengartenstrasse und Hardbrücke bis zum Albisriedenplatz. [(Seit Jahren ein Politikum](https://www.20min.ch/story/laerm-ueber-grenzwert-trotzdem-blockiert-kantonspolizei-tempo-30-442140576340) 
+- Bucheggplatz via Rosengartenstrasse und Hardbrücke bis zum Albisriedenplatz. [(Seit Jahren ein Politikum)](https://www.20min.ch/story/laerm-ueber-grenzwert-trotzdem-blockiert-kantonspolizei-tempo-30-442140576340) 
 - Die Wasserwerkstrasse, wo bereits im Jahr 2021 Tempo 30 eingeführt wurde. [(Siehe Ergebnisse Wirkungsanalyse Tempo30](https://www.zh.ch/de/news-uebersicht/medienmitteilungen/2020/07/resultate-der-wirkungsanalyse-zu-tempo-30--liegen-vor.html#-782269903) 
 - Die Albisriedenstrasse, [wo kürzlich innert kurzer Zeit 350 Autos geblitzt wurden](https://www.tagesanzeiger.ch/radar-blitzte-350-mal-an-einem-tag-949756423047).
 
 
 ## 2 Daten reinigen und analysieren
 
-Für alle drei Strassen wurde der Zeitraum vom 1. Januar bis zum 31. Januar 2021 untersucht. Ausgewertet wurden nur Beobachtungen von Montag bis Freitag in den drei Zeitfenstern 0-6 Uhr, 6-12 Uhr, 12-18 Uhr sowie 18-24 Uhr (jeweils sechs Stunden). Nachts fahren deutlich weniger Autos als tagsüber, die Geschwindigkeiten sind dann meist auch höher. Gezeigt werden in der Regel nur die Zeitfenster 0-6 Uhr und 6-12 Uhr. Die Daten der  unterscheiden sich nur geringfügig von den Daten von 7-12 Uhr.
+Für alle drei Strassen wurde der Zeitraum vom 1. Januar bis zum 31. Januar 2021 untersucht. Ausgewertet wurden nur Beobachtungen von Montag bis Freitag in den drei Zeitfenstern 0-6 Uhr, 6-12 Uhr, 12-18 Uhr sowie 18-24 Uhr (jeweils sechs Stunden). Nachts fahren deutlich weniger Autos als tagsüber, die Geschwindigkeiten sind dann meist auch höher. Gezeigt werden in der Regel nur die Zeitfenster 0-6 Uhr und 6-12 Uhr. Die Daten von 12 bis 18 und von 18 bis 24 Uhr unterscheiden sich nur geringfügig von den Daten von 7-12 Uhr.
 
-Pro Straßensegment lagen nicht die vollständigen Einzeldaten aller dort im Beobachtungszeitraum erfassten Autos vor, sondern nur **aggregierte Werte**, etwa die Anzahl der Hits pro Abschnitt und die dort gefahrene Durchschnittsgeschwindigkeit. Zusätzlich sind die erfassten Autos nach ihrer gefahrenen Geschwindigkeit in 20 Perzentile aufgeteilt.  
+Pro Strassensegment lagen nicht die vollständigen Einzeldaten aller dort im Beobachtungszeitraum erfassten Autos vor, sondern nur **aggregierte Werte**, etwa die Anzahl der Hits pro Abschnitt und die dort gefahrene Durchschnittsgeschwindigkeit. Zusätzlich sind die erfassten Autos nach ihrer gefahrenen Geschwindigkeit in 20 Perzentile aufgeteilt.  
 
 Es gibt eine Angabe zur Durchschnittsgeschwindigkeit der langsamsten 5 Prozent der Autos, zur Durchschnittsgeschwindigkeit der nächst schnelleren 5 Prozent der Autos und so weiter bis zur Durchschnittsgeschwindigkeit der schnellsten 5 Prozent der Autos. Aus diesen Angaben und dem verifizierten Speedlimit (Kameras in den Autos zeichnen pro Strassenabschnitt die angezeigte Geschwindigkeit auf) lässt sich leicht ableiten, wie hoch der Anteil der Autos in der Straße war, die beispielsweise mindestens 10 km/h schneller gefahren sind als erlaubt. Diese wurden zur Berechnung des **Anteil der Autos, die zu schnell fahren** genutzt und direkt ins Original-File geschrieben.
 
@@ -65,9 +65,9 @@ Die vollständige Automatisierung ist [hier](https://github.com/Aebermal/speed-k
 
 Die ersten Ergebnisse der jeweiligen *Routen und Timesets* (insg. 24) wurden in einem ersten Schritt mit den Libraries *GeoPandas*, shapely, fnmatch, os, osmnx und matplotlib* auf eine Karte der Stadt gezeichnet und das Strassennetz gezeichnet. 
 
-Die ersten Grafiken wurden auf das Strassennetz von Zürich gezeichnet, das via OpenStreetmap-API angezapft wurde (osmnx), die Daten aus dem Ursprungsfile wurden via crs angepasst und später in der Automatisierung ergänzt. 
+Die ersten Grafiken wurden auf das Strassennetz von Zürich eingezeichnet, das via OpenStreetmap-API angezapft wurde (osmnx), die Daten aus dem Ursprungsfile wurden via crs angepasst und später in der Automatisierung ergänzt. 
 
-Weil die einzelnen Segmente nicht auf die schnelle eingefärbt werden konnten, wurden für die Geschwindigkeits-Segmente mit *mcolors aus matplotlib* ein eigenes Farbschema programmiert. 
+Weil die einzelnen Segmente nicht auf die schnelle eingefärbt werden konnten, wurde für die Geschwindigkeits-Segmente mit *mcolors aus matplotlib* ein eigenes Farbschema programmiert. 
 
 Damit der User alle Strassensegmente anschauen kann, wurden alle Strassensegmente der drei Verkehrsachsen in einer Karte via *GeoPandas.explore()* eingefügt. So lassen sich die drei Strassenabschnitte interaktiv erkunden. 
 
