@@ -46,7 +46,7 @@ So zeigen die ersten analysierten Daten für die untersuchten Strassen, dass auf
 
 Die ursprünglichen Json-Fils wurden mit selbst programmierten Funktionen via Pandas und Geopandas zu neuen Files umgearbeitet, um sie auf eine interaktive Karte einzeichnen zu können. Für die 4 Time-Sets (siehe oben) und 2 Routen (Hin- und Rückweg) werden pro Verkehrsachse so insgesamt 8 Files generiert (insg. 24). Die verwendeten Libraries: *Pandas, Geopandas, shapely und fnmatch.*
 
-**Die genauen Angaben und statistischen Annahmen können dem Notebook [2 Daten reinigen und analysieren](https://github.com/Aebermal/speed-kt-zh/blob/main/2%20Daten%20reinigen%20und%20analysieren.ipynb) entnommen werden**
+**Die genauen Angaben und statistischen Annahmen können dem Notebook [2 Daten reinigen und analysieren](https://github.com/Aebermal/speed-kt-zh/blob/main/2_Daten_reinigen_und_analysieren.ipynb) entnommen werden**
 
 #### Einschränkung
 
@@ -71,12 +71,12 @@ Weil die einzelnen Segmente nicht auf die schnelle eingefärbt werden konnten, w
 
 Damit der User alle Strassensegmente anschauen kann, wurden alle Strassensegmente der drei Verkehrsachsen in einer Karte via *GeoPandas.explore()* eingefügt. So lassen sich die drei Strassenabschnitte interaktiv erkunden. 
 
-Die ganze Visualisierung und die einzelnen Routen lassen sich [hier](https://github.com/Aebermal/speed-kt-zh/blob/main/3%20Daten%20visualisieren.ipynb) anschauen.
+Die ganze Visualisierung und die einzelnen Routen lassen sich [hier](https://github.com/Aebermal/speed-kt-zh/blob/main/3_Daten_visualisieren.ipynb) anschauen.
 
 
 ## 4 Story-Line und weiteres Vorgehen
 
-[PDF zur Storyline und dem weiteren Vorgehen bis zur Publikation.](https://github.com/Aebermal/speed-kt-zh/blob/main/4%Nächtliche%Tempo-Exzesse%auf%der%Hardbrücke.pdf)
+[PDF zur Storyline und dem weiteren Vorgehen bis zur Publikation.](https://github.com/Aebermal/speed-kt-zh/blob/main/4_N%C3%A4chtliche_Tempo-Exzesse_auf_der_Hardbr%C3%BCcke.pdf)
 
 ## 5 Aufwandslogbuch 
 
