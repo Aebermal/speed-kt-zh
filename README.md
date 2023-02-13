@@ -2,7 +2,7 @@
 
 Analyse von Geschwindigkeitsdaten auf drei von Zürichs umstrittensten Verkehrsachsen aus dem Januar 2021.  
 
-![So viele Autos fahren zu schnell](/graph_all.jpg)
+! [So viele Autos fahren zu schnell](/graph_all.jpg)
 
 
 ## 0 Recherche-These
