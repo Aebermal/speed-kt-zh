@@ -2,7 +2,7 @@
 
 Analyse von Geschwindigkeitsdaten auf drei von Zürichs umstrittensten Verkehrsachsen aus dem Januar 2021.  
 
-!(/Users/malteaeberli/Documents/GitHub/speed-zh/Graph_all.jpg)
+![Bild](/Users/malteaeberli/Documents/GitHub/speed-zh/Graph_all.jpg)
 
 
 ## 0 Recherche-These
