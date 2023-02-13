@@ -25,7 +25,7 @@ Um trotzdem Daten zu Zürichs Strassen analysieren zu können, wurden die Daten 
 
 ### Redimensionierung Recherche
 
-Das machte eine redimensionierung des Projektes notwendig. Analysiert werden deshalb drei umstrittene Verkehrsachsen, die zuletzt politisch Anlass zu Diskussionen gab: 
+Das machte eine redimensionierung des Projektes notwendig. Analysiert werden deshalb drei umstrittene Verkehrsachsen, die zuletzt politisch Anlass zu Diskussionen gaben: 
 
 - Bucheggplatz via Rosengartenstrasse und Hardbrücke bis zum Albisriedenplatz. [(Seit Jahren ein Politikum](https://www.20min.ch/story/laerm-ueber-grenzwert-trotzdem-blockiert-kantonspolizei-tempo-30-442140576340) 
 - Die Wasserwerkstrasse, wo bereits im Jahr 2021 Tempo 30 eingeführt wurde. [(Siehe Ergebnisse Wirkungsanalyse Tempo30](https://www.zh.ch/de/news-uebersicht/medienmitteilungen/2020/07/resultate-der-wirkungsanalyse-zu-tempo-30--liegen-vor.html#-782269903) 
@@ -52,7 +52,7 @@ Die ursprünglichen Json-Fils wurden mit selbst programmierten Funktionen via Pa
 
 Schön wäre gewesen, die Daten-Segmentierung und Färbung direkt im File einzuzeichnen, um etwa mit einem externen Tool wie Data-Wrapper einzeichnen zu können. In der aktuellen Fassung der Daten wird das File als eine Linie eingezeichnet - ein kleiner Schönheitsfehler, den es im Weiteren zu beheben gilt. 
 
-Eine bessere, genauere Granularität der Daten wäre erreicht worden, wenn die segmente einzeln für jeden Tag abgefragt worden wären. Das wäre aber erst mit dem Zugriff auf die API möglich bzw. war mit der Beschränkung der 20 Reports nicht umsetzbar für die drei Verkehrsachsen.
+Eine bessere, genauere Granularität der Daten wäre erreicht worden, wenn die Segmente einzeln für jeden Tag abgefragt worden wären. Das wäre aber erst mit dem Zugriff auf die API möglich bzw. war mit der Beschränkung der 20 Reports nicht umsetzbar für die drei Verkehrsachsen.
 
 ### 2.1 Automatisierung
 
@@ -63,7 +63,7 @@ Die vollständige Automatisierung ist [hier](https://github.com/Aebermal/speed-k
 
 ## 3 Erstellung interaktive Grafiken
 
-Die ersten Ergebnisse der jeweiligen *Routen und Timesets* (insg. 24) wurden in einem ersten Schritt mit den Libraries *GeoPandas*, shapely, fnmatch, os, osmnx und matplotlib* 
+Die ersten Ergebnisse der jeweiligen *Routen und Timesets* (insg. 24) wurden in einem ersten Schritt mit den Libraries *GeoPandas*, shapely, fnmatch, os, osmnx und matplotlib* auf eine Karte der Stadt gezeichnet und das Strassennetz gezeichnet. 
 
 Die ersten Grafiken wurden auf das Strassennetz von Zürich gezeichnet, das via OpenStreetmap-API angezapft wurde (osmnx), die Daten aus dem Ursprungsfile wurden via crs angepasst und später in der Automatisierung ergänzt. 
 
@@ -71,12 +71,12 @@ Weil die einzelnen Segmente nicht auf die schnelle eingefärbt werden konnten, w
 
 Damit der User alle Strassensegmente anschauen kann, wurden alle Strassensegmente der drei Verkehrsachsen in einer Karte via *GeoPandas.explore()* eingefügt. So lassen sich die drei Strassenabschnitte interaktiv erkunden. 
 
-Die ganze Visualisierung und die einzelnen Routen lassen sich [hier](https://github.com/Aebermal/speed-kt-zh/blob/main/3%20Daten%20visualisieren.ipynb) erkunden.
+Die ganze Visualisierung und die einzelnen Routen lassen sich [hier](https://github.com/Aebermal/speed-kt-zh/blob/main/3%20Daten%20visualisieren.ipynb) anschauen.
 
 
 ## 4 Story-Line und weiteres Vorgehen
 
-Hier folgt ein Link zum PDF mit Titel, Lead, drei Grafiken, Storyline und weiterem Vorgehen
+[PDF zur Storyline und dem weiteren Vorgehen bis zur Publikation.](https://github.com/Aebermal/speed-kt-zh/blob/main/4 Nächtliche Tempo-Exzesse auf der Hardbrücke.pdf)
 
 ## 5 Aufwandslogbuch 
 
